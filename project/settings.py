@@ -35,7 +35,6 @@ INSTALLED_APPS = [
     "brand",
     "bootstrap5",
     "widget_tweaks",
-    "cities_light",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",

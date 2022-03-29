@@ -11,3 +11,11 @@ class Admin(admin.ModelAdmin):
 @admin.register(models.Brochure)
 class Admin(admin.ModelAdmin):
     pass
+
+@admin.register(models.Country)
+class Admin(admin.ModelAdmin):
+    pass
+
+@admin.register(models.City)
+class Admin(admin.ModelAdmin):
+    pass

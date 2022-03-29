@@ -1,11 +1,20 @@
 import json
-
-from cities_light import models as cites_models
 from django.db import models
 from django.db.models.signals import post_save
 from kafka import KafkaProducer
 
+class Country(models.Model):  
+    name = models.CharField(max_length=50)
 
+    def __str__(self):
+        return self.name
+    
+class City(models.Model):
+    name = models.CharField(max_length=50)
+    
+    def __str__(self):
+        return self.name
+    
 class Brochure(models.Model):
     # relations
     brand = models.ForeignKey("Brand", on_delete=models.CASCADE)
@@ -15,19 +24,18 @@ class Brochure(models.Model):
     def __str__(self):
         return self.brand.title
 
-
-# Create your models here.
+    
 class Brand(models.Model):
     # relations
     country = models.ForeignKey(
-        cites_models.Country,
+        Country,
         on_delete=models.CASCADE,
         default=None,
         null=True,
         blank=True,
     )
     city = models.ForeignKey(
-        cites_models.Region,
+        City,
         on_delete=models.CASCADE,
         default=None,
         null=True,
@@ -65,6 +73,4 @@ def send_to_kafka(sender, instance, *args, **kwargs):
     # send the data to kafka + encode the data first
     producer.send(topic_name, bytes(data, encoding="utf-8"))
     producer.flush()
-
-
 post_save.connect(send_to_kafka, sender=Brand)
