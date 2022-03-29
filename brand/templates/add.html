@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+{% load static %}
+{% load widget_tweaks %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href= "{% static 'css/style.css' %}">
+
+    <title>Add Brand</title>
+</head>
+<body>
+      
+  <section id="cover" class="min-vh-100">
+    <div id="cover-caption">
+        <div class="container">
+            <div class="row text-white">
+                <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+                    <div class="px-2">
+    <form action="" method="post" enctype="multipart/form-data">
+        {%csrf_token%}
+        {% render_field form.title class="form-control" placeholder="title " %}
+        <br>
+        {% render_field form.descreption class="form-control" placeholder="descreption " %}
+        <br>
+        {% render_field form.logo class="form-control" type="file"  %}
+        <br>
+        {% render_field form.brochure class="form-control" type="file"  %}
+        <!-- <input type="file" name = "brochure" multiple class="form-control" type="file" > -->
+        <br>
+        {% render_field form.country class="btn btn-secondary dropdown-toggle"  %}
+        <br>
+        <br>
+        {% render_field form.city class="btn btn-secondary dropdown-toggle"  %}
+      <br>
+      <br>
+      {% render_field form.location class="form-control" id="fulladdressText" placeholder="Enter full address " %}
+        <!-- <input type="text" class="form-control" id="fulladdressText" placeholder="Enter full address"> -->
+    
+    <!-- start map -->
+    <div class="row">
+        <div id="mapDetails">
+  
+          <div id="map-container">
+            <div id="map-container-inner">
+              <div id="map"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <input type="hidden" class="form-control" id="latText" name="latitude" readonly data-geo="lat">
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <input type="hidden" class="form-control" id="lngText" name="longitude" readonly data-geo="lng">
+              </div>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    <!-- end map -->
+    <br>
+  <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+    </form>
+
+  </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'></script>
+    <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyA0qe-Nm-I-wRVSHg__FQmbIIE9WNpbqms&libraries=places'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/geocomplete/1.7.0/jquery.geocomplete.min.js'></script>
+    <script type="text/javascript" src="{% static 'js/js.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+register via google , facebook
+register 
+login 
+
+-shop categories (home)
+    shops search
+    banners
+    past orders
+    shops (name , image , reviews)
+        search
+        reviews and details 
+        items categories
+            items counter
+            item details(image , price)
+        scan image to be ordered 
+-cart
+    order items + scanned images 
+    write notes
+    choose address
+    add address
+    add coupon
+    checkout
+
+-side menu
+    home -> shop categories
+    your orders (date , shop name , shop image , reorder , reviews , status)
+        order details
+    shops offers
+    notifications (from dashboard)
+    coupons
+    contact us
+    about
+
+-settings
+    profile & edit
+    langs
+    logout
+    address
+        list of my addresses
+        add new address
+        city
+        country
+        address details
+        mobile number
+        land line
+
+delivery app 
+    login 
+    order details 
+    client address
+    status 

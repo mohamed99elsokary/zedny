@@ -1,0 +1,8 @@
+start zookeper  .\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+start kafka 	.\bin\windows\kafka-server-start.bat .\config\server.properties
+create a topic 	.\bin\windows\kafka-topics.bat --create --topic example-topic --bootstrap-server localhost:9092 --replication-factor 1 --partitions 4
+list all topics .\bin\windows\kafka-topics.bat --list --bootstrap-server localhost:9092
+create producer .\bin\windows\kafka-console-producer.bat --broker-list localhost:9092 --topic my-first-topic
+create consumer .\bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic my-first-topic --from-beginning
+STOP KAFKA 	.\bin\windows\kafka-server-stop.bat
+STOP ZOOKEEPER  .\bin\windows\zookeeper-server-stop.bat
