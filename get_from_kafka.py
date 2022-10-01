@@ -11,16 +11,13 @@ def write_in_csv(data):
         with open("data_file.csv", "r") as file:
             reader = csv.reader(file)
             row = next(reader)
-            if (row[0]) == fieldnames[0]:
-                header = True
-            else:
-                header = False
+            header = row[0] == fieldnames[0]
     except:
         header = False
 
     with open("data_file.csv", "a+", newline="") as data_file:
         writer = csv.DictWriter(data_file, fieldnames=fieldnames)
-        if header != True:
+        if not header:
             writer.writeheader()
         writer.writerow(data)
 
